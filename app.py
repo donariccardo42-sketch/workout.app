@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
@@ -6,7 +7,7 @@ import time
 from datetime import date
 
 # 1. Configurazione Pagina & Estetica
-st.set_page_config(page_title="TS900 Lab - Local Pro", layout="wide", page_icon="🏋️‍♂️")
+st.set_page_config(page_title="Workout Tracker", layout="wide", page_icon="🏋️‍♂️")
 
 st.markdown("""
     <style>
@@ -51,7 +52,7 @@ def save_data(new_entries):
 
 # 4. Sidebar: Timer & Backup
 with st.sidebar:
-    st.header("⏱️ Session Tools")
+    st.header("⏱️ Timer")
     
     # Timer
     st.subheader("Rest Timer")
@@ -83,7 +84,7 @@ with st.sidebar:
         st.caption("Nessun dato da scaricare.")
 
 # 5. UI Principale
-st.title("💪 TS900 Lab - Local Tracker")
+st.title("💪 Workout Tracker")
 day = st.selectbox("Seleziona la sessione:", list(workout_plan.keys()))
 
 current_results = []
@@ -110,7 +111,7 @@ if st.button("💾 Salva Allenamento"):
 
 # 6. Analisi Avanzata
 st.markdown("---")
-st.header("📊 Engineering Analytics")
+st.header("📊 Analytics")
 df_history = load_data()
 
 if not df_history.empty:
@@ -133,5 +134,3 @@ if not df_history.empty:
         df_history['Settimana'] = df_history['Data'].dt.to_period('W').apply(lambda r: r.start_time)
         weekly = df_history.groupby('Settimana')['Volume_Totale'].sum().reset_index()
         st.plotly_chart(go.Figure(go.Bar(x=weekly['Settimana'], y=weekly['Volume_Totale'], marker_color='#ff4b4b')).update_layout(template="plotly_dark"), use_container_width=True)
-
-
