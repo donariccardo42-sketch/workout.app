@@ -1,10 +1,24 @@
-
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 import os
 import time
 from datetime import date
+
+# Sostituisci l'URL con il tuo link 'Raw' di GitHub
+ICON_URL = "https://raw.githubusercontent.com/donariccardo42-sketch/workout.app/4ad2a84bfda587cb5abd794c9497f9978e8acfb8/image.png"
+
+st.markdown(
+    f"""
+    <head>
+        <link rel="apple-touch-icon" href="{ICON_URL}">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    </head>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # 1. Configurazione Pagina & Estetica
 st.set_page_config(page_title="Workout Tracker", layout="wide", page_icon="🏋️‍♂️")
