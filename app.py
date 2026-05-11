@@ -10,14 +10,12 @@ ICON_URL = "https://raw.githubusercontent.com/donariccardo42-sketch/workout.app/
 
 st.markdown(
     f"""
-    <head>
-        <link rel="apple-touch-icon" href="{ICON_URL}">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    </head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{ICON_URL}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{ICON_URL}">
     """,
     unsafe_allow_html=True
 )
+
 
 
 # 1. Configurazione Pagina & Estetica
